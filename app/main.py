@@ -26,7 +26,7 @@ daily_weather_var = ["weathercode", "temperature_2m_max", "temperature_2m_min", 
                      "precipitation_hours", "sunrise", "sunset", "windspeed_10m_max", "windgusts_10m_max",
                      "winddirection_10m_dominant", "shortwave_radiation_sum", "et0_fao_evapotranspiration"]
 
-job_limit = 10
+job_limit = 1000
 
 rate_limit = 1.0
 
