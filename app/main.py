@@ -26,7 +26,7 @@ daily_weather_var = ["weathercode", "temperature_2m_max", "temperature_2m_min", 
                      "precipitation_hours", "sunrise", "sunset", "windspeed_10m_max", "windgusts_10m_max",
                      "winddirection_10m_dominant", "shortwave_radiation_sum", "et0_fao_evapotranspiration"]
 
-job_limit = 2000
+job_limit = 10
 
 rate_limit = 1.0
 
@@ -172,7 +172,7 @@ def progress_bar(start_time: datetime, job_no: int):
 def scraping_node_process():
     start_time = datetime.now()
     for job_no in range(job_limit):  # Loop through number of requests
-        # progress_bar(start_time, job_no)
+        progress_bar(start_time, job_no)
         job = get_job_info()
         if job is None:
             sys.exit()
