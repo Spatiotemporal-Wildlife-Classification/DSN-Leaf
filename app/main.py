@@ -6,7 +6,6 @@ import requests
 from datetime import datetime
 import json
 
-
 dsn_endpoint = "http://139.144.179.74:5000/"
 
 weather_endpoint = "https://archive-api.open-meteo.com/v1/archive?"
@@ -165,8 +164,8 @@ def progress_bar(start_time: datetime, job_no: int):
     filled = int(progress_bar_length * percentage_complete)  # Determine fill of percentage bar
     bar = '=' * filled + '-' * (progress_bar_length - filled)  # Modify bar with fill
     percentage_display = round(100 * percentage_complete, 3)  # Calculate percentage
-    sys.stdout.write(('\r[%s] %s%s ... current observations: %s / %s ... running time %s'
-               % (bar, percentage_display, '%', job_no, job_limit, running_time)))
+    print(('\r[%s] %s%s ... current observations: %s / %s ... running time %s'
+           % (bar, percentage_display, '%', job_no, job_limit, running_time)))
 
 
 def scraping_node_process():
@@ -179,10 +178,9 @@ def scraping_node_process():
         weather_data = execute_request(job)
         if weather_data is None:
             send_error_response()
-            break
+            continue
         job_complete_response(weather_data, job)
 
 
 if __name__ == "__main__":
     scraping_node_process()
-

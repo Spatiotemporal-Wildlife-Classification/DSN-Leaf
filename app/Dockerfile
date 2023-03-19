@@ -17,4 +17,4 @@ ADD . .
 WORKDIR .
 
 # Run the server
-CMD ["python", "-u", "./main.py"]
+CMD ["python", "-u", "main.py"]
