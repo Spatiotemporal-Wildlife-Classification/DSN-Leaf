@@ -25,7 +25,7 @@ daily_weather_var = ["weathercode", "temperature_2m_max", "temperature_2m_min", 
                      "precipitation_hours", "sunrise", "sunset", "windspeed_10m_max", "windgusts_10m_max",
                      "winddirection_10m_dominant", "shortwave_radiation_sum", "et0_fao_evapotranspiration"]
 
-job_limit = 1000
+job_limit = 2000
 
 rate_limit = 1.0
 
@@ -68,8 +68,11 @@ def execute_request(job):
 
 def job_complete_response(weather_data, job):
     completion_endpoint = "job/"  # Specify completion endpoint
-    weather_hour, hour_index = determine_hour(weather_data, job["obs_time"])  # Get hour of observation
-    data = job_complete_formatting(weather_data, job, weather_hour, hour_index)  # Format collected data
+    try:
+        weather_hour, hour_index = determine_hour(weather_data, job["obs_time"])  # Get hour of observation
+        data = job_complete_formatting(weather_data, job, weather_hour, hour_index)  # Format collected data
+    except Exception:
+        print("Error in data formatting")
 
     try:
         req = requests.post(url=dsn_endpoint + completion_endpoint, data=json.dumps(data), timeout=5)  # Post request
