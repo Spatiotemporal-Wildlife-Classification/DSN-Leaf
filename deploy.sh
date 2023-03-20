@@ -10,11 +10,7 @@ apt upgrade
 apt install docker.io
 apt install docker-compose
 
-# Clone the dsn-leaf repo
-git clone https://github.com/trav-d13/dsn-leaf.git
-
-# Navigate into directory and update
-cd dsn-leaf
+# Ensure repo is up to date
 git pull
 
 docker-compose build # Perform build in case any missed changes
