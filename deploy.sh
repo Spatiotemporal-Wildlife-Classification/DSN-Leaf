@@ -14,4 +14,4 @@ apt install docker-compose
 git pull
 
 docker-compose build # Perform build in case any missed changes
-docker-compose up  # Execute leaf functionality
+docker-compose up -d  # Execute leaf functionality
