@@ -1,9 +1,6 @@
 # Start from the official Base Image
 FROM python:3.10
 
-# Update
-RUN apt-get update && apt-get upgrade -y
-
 # Copy the file with the requirements to the '/app' directory.
 COPY requirements.txt .
 
