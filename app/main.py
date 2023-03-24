@@ -167,7 +167,7 @@ def progress_bar(start_time: datetime, job_no: int):
     filled = int(progress_bar_length * percentage_complete)  # Determine fill of percentage bar
     bar = '=' * filled + '-' * (progress_bar_length - filled)  # Modify bar with fill
     percentage_display = round(100 * percentage_complete, 3)  # Calculate percentage
-    print(f"\r[{bar}] {percentage_display}%s | current observations: {job_no} / {job_limit} | running time: {running_time}", end="")
+    print(f"\r[{bar}] {percentage_display}%s\tcurrent observations: {job_no} / {job_limit}\trunning time: {running_time}")
 
 
 def scraping_node_process():
