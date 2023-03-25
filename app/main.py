@@ -162,13 +162,12 @@ def send_error_response():
 
 def progress_bar(start_time: datetime, job_no: int):
     running_time = datetime.now() - start_time
-    progress_bar_length = 100  # Specify progress bar length
+    progress_bar_length = 50  # Specify progress bar length
     percentage_complete = float(job_no) / float(job_limit)
     filled = int(progress_bar_length * percentage_complete)  # Determine fill of percentage bar
     bar = '=' * filled + '-' * (progress_bar_length - filled)  # Modify bar with fill
     percentage_display = round(100 * percentage_complete, 3)  # Calculate percentage
-    print(('\r[%s] %s%s ... current observations: %s / %s ... running time %s'
-           % (bar, percentage_display, '%', job_no, job_limit, running_time)))
+    print(f"\r[{bar}] {percentage_display}%s\tcurrent observations: {job_no} / {job_limit} \t running time: {running_time}")
 
 
 def scraping_node_process():
