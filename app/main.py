@@ -40,11 +40,23 @@ def get_job_info():
         return None
 
 
+def date_check(job):
+    observed_on = job['obs_time']
+    observed_on = datetime.strptime(observed_on, "%Y-%m-%d %H:%M:%S%z")  # Convert obs_on into datetime
+
+    start_date = job['start_date']
+    start_date = datetime.strptime(start_date, "%Y-%m-%d")  # Convert start_date into datetime
+
+    if start_date.day != observed_on.day:
+        job['start_date'] = observed_on.strftime("%Y-%m-%d")
+        job['end_date'] = observed_on.strftime("%Y-%m-%d")
+
+    return job
+
+
 def execute_request(job):
     """Method performs weather request to Open_meteo
-
     The auto timezone parameters means that coordinates will be automatically resolved to local timezone
-
     """
     global rate_limit
 
@@ -175,6 +187,7 @@ def scraping_node_process():
     for job_no in range(job_limit):  # Loop through number of requests
         progress_bar(start_time, job_no)
         job = get_job_info()
+        job = date_check(job)
         if job is None:
             sys.exit()
         weather_data = execute_request(job)
