@@ -6,6 +6,8 @@
 apt update
 apt upgrade
 
+sudo reboot
+
 # Install docker and Docker-compose
 apt install docker.io
 apt install docker-compose
