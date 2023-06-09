@@ -289,7 +289,7 @@ def scraping_node_process():
         if weather_data is None:  # Error response if an error occurred
             send_error_response()
             continue
-            
+
         job_complete_response(weather_data, job)  # Successful weather data collection, transfer for storage in DSN
 
 
