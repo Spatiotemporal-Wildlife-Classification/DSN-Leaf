@@ -1,12 +1,32 @@
+"""This file forms a single leaf node used to collect metadata from the OpenMeteo API and transfer that information to DSN Central.
+
+    This node, must work in collaboration with a server containing the Distributed Scraping Network (DNS) API.
+    The repository to access, create, and use this tool is within the Organization
+    (look at the Distributed Scraping Network repository)
+
+    This node communicates with the DSN API to determine the date, location, and time of the observation
+    , performs the request to the Open-Meteo API to gather environmental variables, format and send the collected data back
+    to the API for storage.
+
+    Attributes:
+        dsn_endpoint (str): The endpoint of the DSN API
+        weather_endpoint (str): The endpoint to access the Open-Meteo historical API
+        hourly_weather_var (list): A list specifying all of the hourly weather variables to be collected per observation.
+        daily_weather_var (list): A list specifying all of the daily weather variables to be collected per observation.
+        job_limit (int): Specifying the number of observations to collect metadata for. The value is limited to 1000 per day. Please respect the Open-Meteo limits.
+        rate_limit (int): Specify the rate of requests to the Open-Meteo historical API
+"""
+
+
 import sys
 import traceback
 from time import sleep
-
 import requests
 from datetime import datetime
 import json
 
-dsn_endpoint = "http://139.144.179.74:5000/"
+# Endpoints
+dsn_endpoint = "http://109.74.200.171:5000/"
 
 weather_endpoint = "https://archive-api.open-meteo.com/v1/archive?"
 
