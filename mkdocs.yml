@@ -1,0 +1,13 @@
+site_name: Distributed Scraping Network Leaf
+
+theme:
+  name: "material"
+
+plugins:
+- mkdocstrings:
+    default_handler: python
+
+nav:
+  - Home: index.md
+  - How to use: use.md
+  - Leaf Documentation: code.md

@@ -1,18 +1,8 @@
-# Distributed Scraping Network Leaf
+# How to Use
 
-This repository serves to provide a leaf node within the [Distributed Scraping Network (DSN)](https://spatiotemporal-wildlife-classification.github.io/Distributed-Scraping-Network/).
-The DSN provides a central point of communication for the leaf node through the use of a [FastAPI](https://fastapi.tiangolo.com/).
-
-The leaf node communicates with the central DSN to determine essential wildlife observation details, required 
-to make a weather data request to the [Open-Meteo historical API](https://open-meteo.com/en/docs/historical-weather-api). 
-Once the data is retrieved, the leaf node formats the collected data, and posts it back to the central DSN for collection and storage. 
-
-In summary, the leaf node collects the weather/ meta data for each observation and transfers it to a central storage. 
-This enables the creation of the {#TODO Insert link here} [Spatiotemporal Wildlife Classification's]() novel dataset, specifically
-the metadata values.
-
-## How to use
 ### Local Leaf
+This is a leaf node deployed on your local device.
+
 1. Ensure that the Distributed Scraping Network central element is serving the API successfully. 
     - DSN link: https://spatiotemporal-wildlife-classification.github.io/Distributed-Scraping-Network/
 2. Clone a fork of this repository into the terminal using the `git clone` command
@@ -25,6 +15,9 @@ the metadata values.
 
 
 ### Remote Leaf
+This is a leaf node deployed on a remote machine. 
+The instructions use a [Linode](https://cloud.linode.com) remote machine
+
 1. Ensure that the Distributed Scraping Network central element is serving the API successfully. 
     - DSN link: https://spatiotemporal-wildlife-classification.github.io/Distributed-Scraping-Network/
 2. Create a [Linode](https://cloud.linode.com)
